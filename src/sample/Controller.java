@@ -7,6 +7,8 @@ import javafx.scene.SnapshotParameters;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Slider;
 import javafx.scene.image.PixelReader;
 import javafx.scene.image.Image;
 import javafx.scene.image.PixelWriter;
@@ -23,13 +25,28 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Controller {
+    public ColorPicker cp;
+    public Slider sl;
     @FXML
     Canvas canvas;
     Model model;
     Points points;
+    
 
     Image bgImage;
     double bgX, bgY, bgW = 300.0, bgH = 300.0;
+    public void initialize(){
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        model = new Model();
+        SliderTol();
+    }
+    public void SliderTol() {//толщина линии
+        sl.setMin(3);
+        sl.setMax(10);
+        sl.setValue(3);
+
+        flag =NewLine.getId();
+    }
 
     public void clik_canvas(MouseEvent mouseEvent) {
 
@@ -76,24 +93,37 @@ public class Controller {
 
     public  String flag;
     public Button NewLine;
-    public void SliderTol() {//толщина линии
 
-        flag =NewLine.getId();
+    public void update(Model model) {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+
+        for (int i = 0; i < model.getPointCount(); i++) {
+            //gc.setFill(cp.getValue());
+            gc.fillOval(model.getPoint(i).getX(),model.getPoint(i).getY(),model.getPoint(i).getwP() ,model.getPoint(i).gethP());
+        }
     }
+
     public void print(MouseEvent mouseEvent) {//для неприрывной линии
         //update();
+
+        GraphicsContext gc = canvas.getGraphicsContext2D();
         Points points = new Points((int) mouseEvent.getX(), (int) mouseEvent.getY());
         if (flag == NewLine.getId()) {
-            points.setColor(Color.BLACK);
-            points.setSizePoint(5,5);
+            points.setSizePoint(sl.getValue(), sl.getValue());
+
             model.addPoint(points);
-
-
-
-
+        } else {
+            model.removePoint(points);
         }
-        clik_canvas(mouseEvent);
+        update(model);
     }
+
+
+
+
+
+
 
 
 
@@ -138,6 +168,18 @@ public class Controller {
 
             gc.clearRect(model.getPoint(i).getX(), model.getPoint(i).getY(), model.getPoint(i).getwP(), model.getPoint(i).gethP());
         }
+
+
+    }
+
+    public void act(ActionEvent actionEvent) {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.setFill(cp.getValue());
+
+    }
+
+    public void click2(MouseEvent mouseEvent) {
+
 
 
     }

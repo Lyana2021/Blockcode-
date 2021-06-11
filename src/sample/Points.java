@@ -1,11 +1,18 @@
 package sample;
 
+import javafx.scene.canvas.GraphicsContext;
+
 import java.awt.*;
 
 public class Points  extends Point {
     private Color color;
     private double wp;
     private double hp;
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+
 
     public Points(){
         this.color=Color.BLACK;
@@ -17,16 +24,13 @@ public class Points  extends Point {
     {
         return  color;
     }
-    public void  setColor(javafx.scene.paint.Color color)
-    {
-        this.color=Color.BLACK;
-    }
+
     public Points(int x,int y){
       super(x,y);
 
         this.color=Color.BLACK;
-        this.wp=7;
-        this.hp=7;
+        this.wp=wp;
+        this.hp=hp;
     }
 
 
@@ -53,7 +57,7 @@ public Points(int x, int y,Color color,double wp, double hp) {
     this.hp=hp;
 
 }
-    public  void  setSizePoint(double wP,double hP)
+    public  void  setSizePoint(double wp,double hp)
     {
         this.wp=wp;
         this.hp=hp;
