@@ -20,7 +20,7 @@ Alpha 1.0
 # ![Package sample red.png](https://github.com/Lyana2021/GrafRedactor/blob/main/Package%20sample%20red.png)
 #### 1 Java.
 #### 2 IntelliJ IDEA.
-#### Библиотека JavaFX.
+#### 3 Библиотека JavaFX.
 ## Установка
 Перетащить файлы в папку с другими проектами программной среды.
 ## Конфигурация
