@@ -14,11 +14,13 @@
 ## Статус
 Alpha 1.0
 ## Скриншоты:
-
+# ![redactor1.png](https://github.com/Lyana2021/GrafRedactor/blob/main/redactor1.png)
+# ![redactor123.png](https://github.com/Lyana2021/GrafRedactor/blob/main/redactor123.png)
 ## Зависимости
-1 Java.
-2 IntelliJ IDEA.
-3 Библиотека JavaFX.
+# ![Package sample red.png](https://github.com/Lyana2021/GrafRedactor/blob/main/Package%20sample%20red.png)
+#### 1 Java.
+#### 2 IntelliJ IDEA.
+#### Библиотека JavaFX.
 ## Установка
 Перетащить файлы в папку с другими проектами программной среды.
 ## Конфигурация
@@ -34,8 +36,8 @@ Alpha 1.0
 ## Вовлеченны
 Только автор кода.
 ## Лицензии
-TERMS
-LICENSE
+#### TERMS
+#### LICENSE
 ## Источники вдохновления
 Вуз.
 
